@@ -16,14 +16,15 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+
 import ProductRegister from "./ProductRegister";
 import ProductList from "./ProductList";
 import CategoryRegister from "./CategoryRegister";
 import CategoryList from "./CategoryList";
 import { Container } from "@mui/material";
+import { Category, InsertDriveFile, Inventory, ViewList } from "@mui/icons-material";
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme }) => ({
@@ -77,15 +78,14 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-start",
 }));
 
 export default function MenuDrawer() {
   const theme = useTheme();
-  const [isVisible, setIsVisible] = React.useState(1);
   const [open, setOpen] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(1);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -129,10 +129,7 @@ export default function MenuDrawer() {
       <Main open={open}>
         <DrawerHeader />
 
-        <Container>
-          {selectComponent()}
-        </Container>
-
+        <Container>{selectComponent()}</Container>
       </Main>
       <Drawer
         sx={{
@@ -160,7 +157,7 @@ export default function MenuDrawer() {
           <ListItem key={1} disablePadding onClick={() => setIsVisible(1)}>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <InsertDriveFile />
               </ListItemIcon>
               <ListItemText primary={"Cadastro de Produtos"} />
             </ListItemButton>
@@ -169,7 +166,7 @@ export default function MenuDrawer() {
           <ListItem key={2} disablePadding onClick={() => setIsVisible(2)}>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <Inventory />
               </ListItemIcon>
               <ListItemText primary={"Listagem de Produtos"} />
             </ListItemButton>
@@ -178,7 +175,7 @@ export default function MenuDrawer() {
           <ListItem key={3} disablePadding onClick={() => setIsVisible(3)}>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <Category />
               </ListItemIcon>
               <ListItemText primary={"Cadastro de Categorias"} />
             </ListItemButton>
@@ -187,7 +184,7 @@ export default function MenuDrawer() {
           <ListItem key={4} disablePadding onClick={() => setIsVisible(4)}>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <ViewList />
               </ListItemIcon>
               <ListItemText primary={"Listagem de Categorias"} />
             </ListItemButton>
