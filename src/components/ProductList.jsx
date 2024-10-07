@@ -25,6 +25,7 @@ const ProductList = () => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
+              <TableCell>ID</TableCell>
               <TableCell>Nome</TableCell>
               <TableCell align="right">Preço</TableCell>
               <TableCell align="right">Categoria</TableCell>
@@ -37,8 +38,12 @@ const ProductList = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
+                  {row.id}
+                </TableCell>
+                <TableCell component="th" scope="row">
                   {row.name}
                 </TableCell>
+
                 <TableCell align="right">{row.price}</TableCell>
                 <TableCell align="right">{row.category}</TableCell>
               </TableRow>

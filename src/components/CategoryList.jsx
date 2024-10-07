@@ -26,6 +26,7 @@ const CategoryList = () => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
+              <TableCell>ID</TableCell>
               <TableCell>Nome</TableCell>
             </TableRow>
           </TableHead>
@@ -36,8 +37,9 @@ const CategoryList = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {row.id}
                 </TableCell>
+                <TableCell align="right">{row.name}</TableCell>
               </TableRow>
             ))}
           </TableBody>
